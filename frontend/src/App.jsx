@@ -1,5 +1,9 @@
 import "./App.css";
 import Map from "./Map";
+import IncidentList from "./IncidentList";
+import Resources from "./Resources";
+import AgentActivity from "./AgentActivity";
+import DemoSimulation from "./DemoSimulation";
 
 function App() {
   return (
@@ -66,152 +70,25 @@ function App() {
 
 
         {/* INCIDENTS */}
-        <div className="panel">
+        
+<div className="panel">
 
-          <h2>🚨 Active Incidents</h2>
+  <h2>🚨 Active Incidents</h2>
 
-          <div className="incident">
-            <div>
-              <h3>Flood</h3>
-              <p>INC-001</p>
-            </div>
+  <IncidentList />
 
-            <span className="badge critical-badge">
-              CRITICAL
-            </span>
-
-            <p>Confidence: 91%</p>
-          </div>
-
-
-          <div className="incident">
-            <div>
-              <h3>Fire</h3>
-              <p>INC-002</p>
-            </div>
-
-            <span className="badge high-badge">
-              HIGH
-            </span>
-
-            <p>Confidence: 86%</p>
-          </div>
-
-
-          <div className="incident">
-            <div>
-              <h3>Flood</h3>
-              <p>INC-003</p>
-            </div>
-
-            <span className="badge medium-badge">
-              MEDIUM
-            </span>
-
-            <p>Confidence: 78%</p>
-          </div>
-
-        </div>
+</div>
 
       </section>
 
 
       {/* RESOURCES */}
-      <section className="panel">
-
-        <h2>🚑 Resource Status</h2>
-
-        <div className="resources">
-
-          <div className="resource">
-            <h3>🚑 Ambulances</h3>
-            <h2>3 / 5</h2>
-            <p>2 available</p>
-          </div>
-
-          <div className="resource">
-            <h3>🧑‍🚒 Rescue Teams</h3>
-            <h2>2 / 3</h2>
-            <p>1 available</p>
-          </div>
-
-          <div className="resource">
-            <h3>🏠 Shelters</h3>
-            <h2>2</h2>
-            <p>Available</p>
-          </div>
-
-        </div>
-
-      </section>
-
+      <Resources />
+{/* SIMULATION */}
+<DemoSimulation />
 
       {/* AGENT ACTIVITY */}
-      <section className="panel">
-
-        <h2>🤖 Agent Activity</h2>
-
-        <div className="agent">
-
-          <div>✓</div>
-
-          <div>
-            <strong>Verification Agent</strong>
-            <p>3 reports merged</p>
-          </div>
-
-        </div>
-
-
-        <div className="agent">
-
-          <div>✓</div>
-
-          <div>
-            <strong>Verification Agent</strong>
-            <p>Conflict detected in severity reports</p>
-          </div>
-
-        </div>
-
-
-        <div className="agent">
-
-          <div>✓</div>
-
-          <div>
-            <strong>Priority Agent</strong>
-            <p>INC-001 marked as CRITICAL</p>
-          </div>
-
-        </div>
-
-
-        <div className="agent">
-
-          <div>✓</div>
-
-          <div>
-            <strong>Resource Agent</strong>
-            <p>2 ambulances allocated to INC-001</p>
-          </div>
-
-        </div>
-
-
-        <div className="agent">
-
-          <div>✓</div>
-
-          <div>
-            <strong>Coordinator</strong>
-            <p>Response plan updated</p>
-          </div>
-
-        </div>
-
-      </section>
-
+      <AgentActivity />
     </div>
   );
 }

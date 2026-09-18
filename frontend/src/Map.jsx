@@ -6,6 +6,26 @@ import {
 } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Create colored marker icons
+const createIcon = (color) =>
+  L.divIcon({
+    className: "",
+    html: `
+      <div style="
+        background-color: ${color};
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      "></div>
+    `,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -12]
+  });
 
 function Map() {
 
@@ -36,6 +56,15 @@ function Map() {
     }
   ];
 
+  // Choose marker color based on severity
+  const getMarkerColor = (severity) => {
+    if (severity === "Critical") return "#e53935";
+    if (severity === "High") return "#fb8c00";
+    if (severity === "Medium") return "#fdd835";
+
+    return "#1976d2";
+  };
+
   return (
     <MapContainer
       center={[17.385, 78.4867]}
@@ -55,7 +84,9 @@ function Map() {
             incident.latitude,
             incident.longitude
           ]}
+          icon={createIcon(getMarkerColor(incident.severity))}
         >
+
           <Popup>
 
             <strong>{incident.type}</strong>
@@ -73,6 +104,7 @@ function Map() {
             Confidence: {incident.confidence}%
 
           </Popup>
+
         </Marker>
       ))}
 
