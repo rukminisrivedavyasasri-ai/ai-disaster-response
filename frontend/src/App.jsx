@@ -1,4 +1,5 @@
 import "./App.css";
+import Map from "./Map";
 
 function App() {
   return (
@@ -47,25 +48,21 @@ function App() {
       <section className="main-grid">
 
         {/* MAP */}
-        <div className="panel map-panel">
+<div className="panel map-panel">
 
-          <h2>🗺️ Disaster Map</h2>
+  <h2>🗺️ Disaster Map</h2>
 
-          <div className="map-placeholder">
-            <div className="map-message">
-              <span>🗺️</span>
-              <h3>Disaster Monitoring Map</h3>
-              <p>Incident locations will appear here</p>
+  <div className="map-container">
+    <Map />
+  </div>
 
-              <div className="markers">
-                🔴 &nbsp; Critical &nbsp;&nbsp;
-                🟠 &nbsp; High &nbsp;&nbsp;
-                🟡 &nbsp; Medium
-              </div>
-            </div>
-          </div>
+  <div className="markers">
+    🔴 &nbsp; Critical &nbsp;&nbsp;
+    🟠 &nbsp; High &nbsp;&nbsp;
+    🟡 &nbsp; Medium
+  </div>
 
-        </div>
+</div>
 
 
         {/* INCIDENTS */}
