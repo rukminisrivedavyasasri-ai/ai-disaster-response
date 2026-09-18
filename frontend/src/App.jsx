@@ -4,6 +4,7 @@ import IncidentList from "./IncidentList";
 import Resources from "./Resources";
 import AgentActivity from "./AgentActivity";
 import DemoSimulation from "./DemoSimulation";
+import AIDecision from "./AIDecision";
 
 function App() {
   return (
@@ -48,47 +49,51 @@ function App() {
       </section>
 
 
-      {/* MAIN CONTENT */}
-      <section className="main-grid">
+      {/* MAP + AI DECISION */}
+      <section className="command-grid">
 
-        {/* MAP */}
-<div className="panel map-panel">
+        <div className="panel map-panel">
 
-  <h2>🗺️ Disaster Map</h2>
+          <h2>🗺️ Live Disaster Map</h2>
 
-  <div className="map-container">
-    <Map />
-  </div>
+          <div className="map-container">
+            <Map />
+          </div>
 
-  <div className="markers">
-    🔴 &nbsp; Critical &nbsp;&nbsp;
-    🟠 &nbsp; High &nbsp;&nbsp;
-    🟡 &nbsp; Medium
-  </div>
+          <div className="markers">
+            🔴 Critical &nbsp;&nbsp;
+            🟠 High &nbsp;&nbsp;
+            🟡 Medium
+          </div>
 
-</div>
+        </div>
+
+        <AIDecision />
+
+      </section>
 
 
-        {/* INCIDENTS */}
-        
-<div className="panel">
+      {/* ACTIVE INCIDENTS */}
+      <section className="panel incidents-panel">
 
-  <h2>🚨 Active Incidents</h2>
+        <h2>🚨 Active Incidents</h2>
 
-  <IncidentList />
-
-</div>
+        <IncidentList />
 
       </section>
 
 
       {/* RESOURCES */}
       <Resources />
-{/* SIMULATION */}
-<DemoSimulation />
+
 
       {/* AGENT ACTIVITY */}
       <AgentActivity />
+
+
+      {/* SIMULATION */}
+      <DemoSimulation />
+
     </div>
   );
 }

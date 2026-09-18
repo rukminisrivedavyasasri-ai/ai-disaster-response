@@ -1,5 +1,4 @@
 function IncidentList() {
-
   const incidents = [
     {
       id: "INC-001",
@@ -22,32 +21,49 @@ function IncidentList() {
   ];
 
   return (
-    <div>
+    <div className="incident-cards">
 
       {incidents.map((incident) => (
 
-        <div className="incident" key={incident.id}>
+        <div
+          className={`incident-card ${incident.severity.toLowerCase()}`}
+          key={incident.id}
+        >
 
-          <div>
-            <h3>{incident.type}</h3>
-            <p>{incident.id}</p>
+          <div className="incident-card-top">
+
+            <span className="incident-id">
+              {incident.id}
+            </span>
+
+            <span
+              className={`badge ${
+                incident.severity === "Critical"
+                  ? "critical-badge"
+                  : incident.severity === "High"
+                  ? "high-badge"
+                  : "medium-badge"
+              }`}
+            >
+              {incident.severity.toUpperCase()}
+            </span>
+
           </div>
 
-          <span
-            className={`badge ${
-              incident.severity === "Critical"
-                ? "critical-badge"
-                : incident.severity === "High"
-                ? "high-badge"
-                : "medium-badge"
-            }`}
-          >
-            {incident.severity.toUpperCase()}
-          </span>
+          <h3>{incident.type}</h3>
 
-          <p>
-            Confidence: {incident.confidence}%
-          </p>
+          <div className="incident-confidence">
+            <span>Confidence</span>
+            <strong>{incident.confidence}%</strong>
+          </div>
+
+          <div className="mini-confidence-bar">
+            <div
+              style={{
+                width: `${incident.confidence}%`
+              }}
+            ></div>
+          </div>
 
         </div>
 
